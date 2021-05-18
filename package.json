@@ -1,0 +1,68 @@
+{
+  "name": "nextjs-express-graphql",
+  "version": "1.0.0",
+  "description": "nextjs-express-graphql",
+  "author": "negiseijin <satoru6221@gmail.com>",
+  "license": "MIT",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "next",
+    "serve": "node --loader ts-node/esm ./src/server/index.ts",
+    "build": "next build",
+    "start": "next start",
+    "prepare": "husky install",
+    "type-check": "tsc --pretty --noEmit",
+    "format": "prettier --write ./src/**/*.{ts,tsx,js,jsx}",
+    "lint": "eslint ./src/**/*.{ts,tsx,js,jsx}",
+    "lint --fix": "eslint --fix ./src/**/*.{ts,tsx,js,jsx}",
+    "lint:css": "stylelint --fix ./src/**/*.{css,scss,sass}"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "next": "latest",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-do-expressions": "^7.14.0",
+    "@types/express": "^4.17.11",
+    "@types/node": "^15.0.2",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/parser": "^4.22.1",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "git-format-staged": "^2.1.1",
+    "husky": "^6.0.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^11.0.0",
+    "prettier": "2.2.1",
+    "pretty-quick": "^3.1.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-recess-order": "^2.4.0",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-scss": "^3.19.0",
+    "ts-node": "^9.1.1",
+    "typescript": "4.2.4"
+  },
+  "lint-staged": {
+    "*.@(ts|tsx)": [
+      "eslint --cache --fix ./src/**/*.{ts,tsx,js,jsx}",
+      "prettier --write --ignore-unknown ./src/**/*.{ts,tsx,js,jsx}"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn run type-check"
+    }
+  }
+}

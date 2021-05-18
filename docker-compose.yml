@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  nextjs:
+    build: ./
+    container_name: nextjs-express-graphql
+    tty: true
+    volumes:
+      - ./:/usr/src/app
+    command: 'yarn dev'
+    ports:
+      - 3000:3000
