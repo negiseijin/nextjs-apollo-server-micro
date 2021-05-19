@@ -1,1 +1,1 @@
-# nextjs-express-graphql
+# nextjs-apollo-server-micro
